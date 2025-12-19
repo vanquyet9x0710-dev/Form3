@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>FORM XE RA / VÀO BỐC HÀNG</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<style>
+body {
+  background: #f5f7fa;
+}
+.box {
+  max-width: 900px;
+  margin: auto;
+}
+</style>
+
+</head>
+<body>
+
+<section class="hero is-link">
+  <div class="hero-body has-text-centered">
+    <h1 class="title">FORM GHI NHẬN XE RA / VÀO BỐC HÀNG</h1>
+    <p class="subtitle">Kho / Nhà máy</p>
+  </div>
+</section>
+
+<div class="box mt-4">
+
+<form id="truck-form">
+
+<div class="columns">
+  <div class="column">
+    <label class="label">Biển số xe</label>
+    <input class="input" type="text" name="BIỂN SỐ XE" required>
+  </div>
+
+  <div class="column">
+    <label class="label">Tên tài xế</label>
+    <input class="input" type="text" name="TÀI XẾ">
+  </div>
+</div>
+
+<div class="columns">
+  <div class="column">
+    <label class="label">Loại xe</label>
+    <div class="select is-fullwidth">
+      <select name="LOẠI XE">
+        <option>Xe tải</option>
+        <option>Container</option>
+        <option>Xe thùng</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="column">
+    <label class="label">Loại hàng</label>
+    <div class="select is-fullwidth">
+      <select name="LOẠI HÀNG">
+        <option>Thành phẩm</option>
+        <option>Nguyên vật liệu</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="columns">
+  <div class="column">
+    <label class="label">Thời gian xe vào cổng</label>
+    <input type="datetime-local" class="input" name="THỜI GIAN XE VÀO">
+  </div>
+
+  <div class="column">
+    <label class="label">Bắt đầu bốc hàng</label>
+    <input type="datetime-local" class="input" name="BẮT ĐẦU BỐC HÀNG">
+  </div>
+</div>
+
+<div class="columns">
+  <div class="column">
+    <label class="label">Kết thúc bốc hàng</label>
+    <input type="datetime-local" class="input" name="KẾT THÚC BỐC HÀNG">
+  </div>
+
+  <div class="column">
+    <label class="label">Thời gian xe ra cổng</label>
+    <input type="datetime-local" class="input" name="THỜI GIAN XE RA">
+  </div>
+</div>
+
+<hr>
+
+<div class="field">
+  <label class="label">Nhân lực bốc xếp</label>
+  <label class="checkbox">
+    <input type="checkbox" name="NHÂN LỰC[]" value="Tự bốc"> Tự bốc
+  </label>
+  <br>
+  <label class="checkbox">
+    <input type="checkbox" name="NHÂN LỰC[]" value="Thuê ngoài"> Thuê ngoài
+  </label>
+</div>
+
+<div class="field">
+  <label class="label">Ghi chú</label>
+  <textarea class="textarea" name="GHI CHÚ"></textarea>
+</div>
+
+<br>
+
+<button class="button is-link is-fullwidth" type="submit">
+  GỬI THÔNG TIN
+</button>
+
+</form>
+
+</div>
+
+<script>
+<script>
+$('#truck-form').on('submit', function(e){
+  e.preventDefault();
+
+$.ajax({
+  url: 'https://script.google.com/macros/s/AKfycbyFAWv9s7y8gq3dcoL1HH6Ga0fIKQmv5yfvgsFQNxkPLVwR6y5lDFCR8jJyFOYFDmZo3Q/exec',
+  method: 'POST',
+  data: $(this).serialize(),
+  success: function(){
+    alert('Gửi dữ liệu thành công');
+  }
+});
+});
+</script>
+  e.preventDefault();
+
+  // Nếu chưa nối Google Sheet thì chỉ alert
+  alert('Đã ghi nhận thông tin xe thành công');
+
+  // Reset form
+  this.reset();
+});
+</script>
+
+</body>
+</html>
