@@ -126,11 +126,15 @@ $('#truck-form').on('submit', function(e){
   e.preventDefault();
 
 $.ajax({
-  url: 'https://script.google.com/macros/s/AKfycbyFAWv9s7y8gq3dcoL1HH6Ga0fIKQmv5yfvgsFQNxkPLVwR6y5lDFCR8jJyFOYFDmZo3Q/exec',
+  url: 'https://script.google.com/macros/s/AKfycbwkyxTIPwWoFiUiVrO9McVWsYyhZkiQ_B8ED3oe3jz8gacwAnnXu_hH4dwqtEAG0KXUmA/exec',
   method: 'POST',
   data: $(this).serialize(),
   success: function(){
     alert('Gửi dữ liệu thành công');
+    $('#truck-form')[0].reset();
+  },
+  error: function(){
+    alert('Lỗi gửi dữ liệu!');
   }
 });
 });
@@ -147,3 +151,4 @@ $.ajax({
 
 </body>
 </html>
+
