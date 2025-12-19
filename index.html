@@ -121,24 +121,29 @@ body {
 </div>
 
 <script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <script>
 $('#truck-form').on('submit', function(e){
-  e.preventDefault();
+  e.preventDefault(); // ❗ chặn submit mặc định
 
-$.ajax({
-  url: 'https://script.google.com/macros/s/AKfycbwkyxTIPwWoFiUiVrO9McVWsYyhZkiQ_B8ED3oe3jz8gacwAnnXu_hH4dwqtEAG0KXUmA/exec',
-  method: 'POST',
-  data: $(this).serialize(),
-  success: function(){
-    alert('Gửi dữ liệu thành công');
-    $('#truck-form')[0].reset();
-  },
-  error: function(){
-    alert('Lỗi gửi dữ liệu!');
-  }
-});
+  $.ajax({
+    url: 'https://script.google.com/macros/s/AKfycbwkyxTIPwWoFiUiVrO9McVWsYyhZkiQ_B8ED3oe3jz8gacwAnnXu_hH4dwqtEAG0KXUmA/exec',
+    method: 'POST',
+    data: $(this).serialize(),
+    success: function(){
+      alert('Gửi dữ liệu thành công');
+      $('#truck-form')[0].reset();
+    },
+    error: function(){
+      alert('Lỗi gửi dữ liệu!');
+    }
+  });
+
 });
 </script>
+  
   e.preventDefault();
 
   // Nếu chưa nối Google Sheet thì chỉ alert
@@ -151,4 +156,5 @@ $.ajax({
 
 </body>
 </html>
+
 
