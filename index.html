@@ -8,16 +8,11 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <style>
-body {
-  background: #f5f7fa;
-}
-.box {
-  max-width: 900px;
-  margin: auto;
-}
+body { background: #f5f7fa; }
+.box { max-width: 900px; margin: auto; }
 </style>
-
 </head>
+
 <body>
 
 <section class="hero is-link">
@@ -98,8 +93,7 @@ body {
   <label class="label">Nhân lực bốc xếp</label>
   <label class="checkbox">
     <input type="checkbox" name="NHÂN LỰC[]" value="Tự bốc"> Tự bốc
-  </label>
-  <br>
+  </label><br>
   <label class="checkbox">
     <input type="checkbox" name="NHÂN LỰC[]" value="Thuê ngoài"> Thuê ngoài
   </label>
@@ -117,44 +111,31 @@ body {
 </button>
 
 </form>
-
 </div>
 
 <script>
+$(document).ready(function(){
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  $('#truck-form').on('submit', function(e){
+    e.preventDefault();
 
-<script>
-$('#truck-form').on('submit', function(e){
-  e.preventDefault(); // ❗ chặn submit mặc định
+    $.ajax({
+      url: 'https://script.google.com/macros/s/AKfycbwkyxTIPwWoFiUiVrO9McVWsYyhZkiQ_B8ED3oe3jz8gacwAnnXu_hH4dwqtEAG0KXUmA/exec',
+      method: 'POST',
+      data: $(this).serialize(),
+      success: function(){
+        alert('Gửi dữ liệu thành công');
+        $('#truck-form')[0].reset();
+      },
+      error: function(){
+        alert('Lỗi gửi dữ liệu');
+      }
+    });
 
-  $.ajax({
-    url: 'https://script.google.com/macros/s/AKfycbwkyxTIPwWoFiUiVrO9McVWsYyhZkiQ_B8ED3oe3jz8gacwAnnXu_hH4dwqtEAG0KXUmA/exec',
-    method: 'POST',
-    data: $(this).serialize(),
-    success: function(){
-      alert('Gửi dữ liệu thành công');
-      $('#truck-form')[0].reset();
-    },
-    error: function(){
-      alert('Lỗi gửi dữ liệu!');
-    }
   });
 
-});
-</script>
-  
-  e.preventDefault();
-
-  // Nếu chưa nối Google Sheet thì chỉ alert
-  alert('Đã ghi nhận thông tin xe thành công');
-
-  // Reset form
-  this.reset();
 });
 </script>
 
 </body>
 </html>
-
-
